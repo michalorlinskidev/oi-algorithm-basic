@@ -1,16 +1,18 @@
-# This is a sample Python script.
+def binary_search(table, search_value):
+    begin = 0
+    end = len(table) - 1
+    while begin < end:
+        middle = int((begin + end) / 2)
+        if table[middle] >= search_value:
+            end = middle
+        else:
+            begin = middle + 1
+    return begin
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    table = [1, 4, 5, 9, 12, 18, 20, 21, 27, 32, 35, 48, 49, 51, 54]
+    search_value = 12
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    position = binary_search(table, search_value)
+    print("Found position: " + str(position + 1) + " has value " + str(table[position]))
